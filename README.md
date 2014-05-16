@@ -1,12 +1,8 @@
 
 # Javascript Daily
 
-## javascript sample code
+javascript sample code
 
-### daily task
 
-Testttttt
-=
 
-hogehoge
--
+
