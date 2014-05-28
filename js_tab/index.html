@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript tabs</title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		padding: 50px;
+	}
+	.tab-nav {
+		display: inline-block;
+		padding: 5px 10px;
+		border: 1px solid #333;
+		background-color: #ccc;
+		margin: 0 2px;
+	}
+	.tab-nav.active {
+		background-color: #333333;
+		color: white;
+	}
+	#tab1,
+	#tab2,
+	#tab3 {
+		padding: 100px;
+		border: 1px solid #333;
+		background-color: #999;
+		color: white;
+		display: none;
+	}
+	#tab1.active,
+	#tab2.active,
+	#tab3.active {
+		display: block;
+	}
+</style>
+<body>
+	<h1>Javascript Tabs</h1>
+
+	<ul>
+		<li class="tab-nav active" data-tab-id="tab1">tab1</li>
+		<li class="tab-nav" data-tab-id="tab2">tab2</li>
+		<li class="tab-nav" data-tab-id="tab3">tab3</li>
+	</ul>
+	<div id="tab1" class="tab-contents active">
+		tab1
+	</div>
+	<div id="tab2" class="tab-contents">
+		tab2
+	</div>
+	<div id="tab3" class="tab-contents">
+		tab3
+	</div>
+
+	<script src="riddle.js"></script>
+	<script>
+		(function(){
+			function aaa(element) {
+				var data = r(element).attr('data-tab-id');
+				r('.tab-nav').removeClass('active');
+				r(element).addClass('active');
+				r('.tab-contents').removeClass('active');
+				r('#' + data).addClass('active');
+			}
+
+			window.addEventListener('DOMContentLoaded', function(){
+				console.log('DOMContentLoaded');
+				r('.tab-nav').bind('click', function(){
+					aaa(this);
+				});
+			}, false);
+		})();
+	</script>
+</body>
+</html>
